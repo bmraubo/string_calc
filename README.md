@@ -49,4 +49,6 @@ The starting point would be a test file with no tests. The first pull request wo
 
 This has the added benefit of expending the number of tests done with each pull request automatically.
 
-How much wood could a woodchuck chuck if a wood chuck could chuck wood.
+How much wood could a woodchuck chuck if a wood chuck could chuck wood. 
+
+Ans: 17
