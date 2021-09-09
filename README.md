@@ -53,9 +53,20 @@ This is simple enough - empty strings have to return 0, if not empty the string 
 
 ### Step 2
 
+Allow strings with unknown number of values
+
 Tests: string with 4 and 10 values
 
 So the splitting of the string according to the delimiter will allow for any amount of numbers to be handled - no changes to the code necessary - tests all pass. Woops.
+
+### Step 3
+
+Allow for the use of the '\n' delimiter alongside ','
+
+Added tests that include only the '\n' delimiter, as well as a combination of both.
+
+I added a `.replace('\n',',')` before the string is split replace all new lines with commas. The rest of the code is unaffected.
+
 
 ### Red/Green/Refactor
 

@@ -15,5 +15,11 @@ class StringCalcTests(unittest.TestCase):
     def test_10_nums(self):
         self.assertEqual(Add('1,6,1,8,3,2,12,56,4,87'), 180)
 
+    def test_new_line(self):
+        self.assertEqual(Add('1\n3'), 4)
+
+    def test_new_line_comma(self):
+        self.assertEqual(Add('1\n3,5'), 9)
+
 if __name__ == '__main__':
     unittest.main()
