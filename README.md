@@ -33,7 +33,29 @@ This is more of a process exercise than a programming one, with the learning obj
 
 ## Comments
 
-### Tests
+### Steps
+
+#### Step 1
+
+Create a simple String calculator with a method signature:
+
+`int Add(string numbers)`
+
+The method can take up to two numbers, separated by commas, and will return their sum. 
+
+for example “” or “1” or “1,2” as inputs.
+
+(for an empty string it will return 0)
+
+Tests created for empty string and string with two values
+
+This is simple enough - empty strings have to return 0, if not empty the string has to be split according to the delimiter and the totals added up. As the returned numbers will be strings, the split list is run through a for loop which adds the integer value to the answer variable, returning that variable once the loop is complete.
+
+### Step 2
+
+Tests: string with 4 and 10 values
+
+So the splitting of the string according to the delimiter will allow for any amount of numbers to be handled - no changes to the code necessary - tests all pass. Woops.
 
 ### Red/Green/Refactor
 
