@@ -49,6 +49,4 @@ The starting point would be a test file with no tests. The first pull request wo
 
 This has the added benefit of expending the number of tests done with each pull request automatically.
 
-How much wood could a woodchuck chuck if a wood chuck could chuck wood. 
-
-Ans: 17
+Had a dummy moment here - I could not figure out the relationship of checks to statuses and almost went down the road of making API status calls. The issue was that I was trying to find a status that referred to 'CI' the name of the check or tests.yml. The correct status was 'build' the name of the job within the yml file. That only took best part of 2 hours. 
