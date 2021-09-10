@@ -1,16 +1,14 @@
 # string_calc
 CI-backed String Calculator Kata
 
-[Instructions](#Instructions)
-
-[Brief](#Brief)
-
-[Comments](#Comments)
-- [Steps](#Steps)
-- [Red/Green/Refactor](#Red/Green/Refactor)
-- [Continuous Integration](#Continuous_Integration)
-- [Walking Skeleton](#Walking_Skeleton)
-- [GitHub Actions/Automation](#GitHub_Actions/Automation)
+- [Instructions](#Instructions)
+- [Brief](#Brief)
+- [Comments](#Comments)
+    - [Steps](#Steps)
+    - [Red/Green/Refactor](#Red/Green/Refactor)
+    - [Continuous Integration](#Continuous_Integration)
+    - [Walking Skeleton](#Walking_Skeleton)
+    - [GitHub Actions/Automation](#GitHub_Actions/Automation)
 
 ## Instructions
 
