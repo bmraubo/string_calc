@@ -51,7 +51,7 @@ Tests created for empty string and string with two values
 
 This is simple enough - empty strings have to return 0, if not empty the string has to be split according to the delimiter and the totals added up. As the returned numbers will be strings, the split list is run through a for loop which adds the integer value to the answer variable, returning that variable once the loop is complete.
 
-### Step 2
+#### Step 2
 
 Allow strings with unknown number of values
 
@@ -59,7 +59,7 @@ Tests: string with 4 and 10 values
 
 So the splitting of the string according to the delimiter will allow for any amount of numbers to be handled - no changes to the code necessary - tests all pass. Woops.
 
-### Step 3
+#### Step 3
 
 Allow for the use of the '\n' delimiter alongside ','
 
@@ -67,6 +67,31 @@ Added tests that include only the '\n' delimiter, as well as a combination of bo
 
 I added a `.replace('\n',',')` before the string is split replace all new lines with commas. The rest of the code is unaffected.
 
+#### Step 4
+
+Support for different delimiters in the format `'//{delimiter}\n{numbers}'`.
+
+Tests added for '//&\n4&9' and '//howdy\n1howdy4'
+
+I added and else if statement that catches any strings beginning with '//', and splits the delimiter away from the numbers, before splitting the numbers using the identified delimiter. All tests pass. 
+
+I then identified a potential edge case - what if a custom delimiter was identified, but there were no numbers, per the scenario in step 1 - so I added '//howdy\n' as a test - it failed. 
+
+I opened up a Jupyter notebook to see what actually happens to to the string when I split it according to the '\n' - ['//howdy', '']. This is cool, because we have a second object in the list that we can work with, meaning that the situation is the same as `Add("")`. Since we are doing the same thing twice (even though in real terms it would take less time to copy and paste), the situation calls for a nested function - I have never been sure about the proper use of these.
+
+I created an `Empty(string)` function that returns True if the string is empty. 
+
+Added benefit is that this code change will affect all tests, so it is one of the more serious refactoring exercises in this kata.
+
+Another edge case - what if someone set the custom delimiter to '\n' - it would break the code. This is a very specific case, so can be dealt with in a specific fashion. Test written for '//\n\n4\n3', which obviously fails.
+
+Initially, I had hoped to include a `elif string[2:4] == '\n'` condition, but that did not seem to work in my Jupyter notebook (I figured out why later... see below), so I went with `elif string.count('\n') > 1` which achieves the same result in identifying offending delimiters. At that point we know that a) the delimiter is \n, and b) that the numbers part of the string will begin at index 6 (or actually index 4, as \n is counted as a single index... this means that `if string[2] == '\n':` works as a condition too! but lets proceed with the .count method).
+
+The logic of the `\n` delimiter also has to precede the Empty(string) check, as otherwise we will get empty strings that trigger the `return 0`. All tests now pass.
+
+But for completeness - what about '//\n\n'? Test fails - I already have the Empty nested function, so I will feed `string[4:]` into that to identify any offenders. Test now passes - all is well.
+
+Can't think of any other problems that might come up.
 
 ### Red/Green/Refactor
 
