@@ -12,9 +12,31 @@ CI-backed String Calculator Kata
 
 ## Instructions
 
-Clone the repository either by:
+This application requires Python 3.8.2.
 
-Using terminal command `git clone https://github.com/bmraubo/string_calc.git`
+If you have Git installed:
+
+```
+#clone the repository
+
+$ git clone https://github.com/bmraubo/string_calc.git`
+```
+
+If you do not have Git installed, you can download a zipped copy, which can be unzipped into a folder of your choice. 
+
+Once you have a local copy of the repository:
+
+```
+# go into the repository
+$ cd string_calc
+
+# run the application
+$ python kata.py
+
+# to run all tests
+$ python -m unittest test_kata.py
+
+```
 
 Downloading the zipped repository and unzip it into a folder of your choice. Then use terminal to navigate to the folder and use command `python kata.py`.
 
@@ -30,11 +52,11 @@ Note that only the simplest input interface is currently present. Errors with st
 
 ### Non-Functional Requirements
 
-- Code is implemented using the Red-Green-Refactor technique.
-- Each step of the String Calculator kata should be developed in a separate branch and merged in to the `main` branch via a pull request.
-- The repo provides instructions for a user to clone and run locally, with tests. Do not assume the user has strong experience in the language you'll be working in.
+- Code is implemented using the Red-Green-Refactor technique. *YES*
+- Each step of the String Calculator kata should be developed in a separate branch and merged in to the `main` branch via a pull request. *YES*
+- The repo provides instructions for a user to clone and run locally, with tests. Do not assume the user has strong experience in the language you'll be working in. *YES*
 - A CI pipeline, which runs the application tests as part of branch pushes and merge requests, is up and running _before_ the first code pull request is filed. *DONE*
-- The repo is set to block merges to `main` unless the pipelines are passing. *DONE*
+- The repo is set to block merges to `main` unless the pipelines are passing. *YES*
 
 ### Languages / Tools
 
