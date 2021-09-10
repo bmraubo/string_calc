@@ -2,7 +2,9 @@
 CI-backed String Calculator Kata
 
 [Instructions](#Instructions)
+
 [Brief](#Brief)
+
 [Comments](#Comments)
 - [Steps](#Steps)
 - [Red/Green/Refactor](#Red/Green/Refactor)
