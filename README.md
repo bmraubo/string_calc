@@ -1,7 +1,26 @@
 # string_calc
 CI-backed String Calculator Kata
 
+[Instructions](#Instructions)
+[Brief](#Brief)
+[Comments](#Comments)
+- [Steps](#Steps)
+- [Red/Green/Refactor](#Red/Green/Refactor)
+- [Continuous Integration](#Continuous_Integration)
+- [Walking Skeleton](#Walking_Skeleton)
+- [GitHub Actions/Automation](#GitHub_Actions/Automation)
+
 ## Instructions
+
+Clone the repository either by:
+
+Using terminal command `git clone https://github.com/bmraubo/string_calc.git`
+
+Downloading the zipped repository and unzip it into a folder of your choice. Then use terminal to navigate to the folder and use command `python kata.py`.
+
+The tests can be run by navigating to the folder containing the repository and using the command `python -m unittest test_kata.py`
+
+Note that only the simplest input interface is currently present. Errors with string input may result in an unhandled exception. 
 
 ## Brief
 
@@ -23,7 +42,7 @@ CI-backed String Calculator Kata
 - Any test runner is acceptable
 - The apprentice should not need to bring in other dependencies at this stage
 
- ### Learning Objectives
+### Learning Objectives
 
 This is more of a process exercise than a programming one, with the learning objectives designed to give you a solid foundation for all apprenticeship projects at 8th Light:
 
@@ -93,6 +112,19 @@ But for completeness - what about '//\n\n'? Test fails - I already have the Empt
 
 Can't think of any other problems that might come up.
 
+#### Step 5
+
+Calling Add with a negative number will throw an exception “negatives not allowed” - and the negative that was passed. If there are multiple negatives, show all of them in the exception message.
+
+Three tests - single negative '-2', mix of positives and negatives '-2,-5,10', negatives only '-4,-3'. The method of testing for exceptions is a little different (and previously I was unfamiliar with it, so Stack Overflow really deserves the credit). 
+
+`def test_negative_positive_mix(self):
+    with self.assertRaises(Exception) as context:
+        Add('-2,-5,10')
+    self.assertTrue(context.exception, 'Negatives not allowed: [-2, -5]')`
+
+This calls for a nested function (as we are going to run the check for every number in every case but '') that checks if the value is negative and appends it to a negatives_list. The return of the answers variable will have to be conditional on len(negatives_list) being 0.
+
 ### Red/Green/Refactor
 
 RGR is a concept of Test Driven Development. It relies on tests being written in order to guide the development of the application as a first step in the process. These tests will inevitably fail, as there is no code written to allow them to pass (thus red - fail).
@@ -119,10 +151,10 @@ In the current scenario, the end-result is simple enough that Step 1 of the Kata
 
 ### GitHub Actions/Automation
 
-The requirements are that each pull request is automatically tested, and cannot be merged unless the tests are passed. *(this is now satisfied)*
+The requirements are that each pull request is automatically tested, and cannot be merged unless the tests are passed.
 
 The starting point would be a test file with no tests. The first pull request would include the tests for step 1, as well as the features tested - however the framework would already be in place, satisfying the brief requirements. 
 
-This has the added benefit of expending the number of tests done with each pull request automatically.
+This has the added benefit of expending the number of tests done with each pull request automatically. *I subsequently became aware that the tests used for the merge check are from the branch, not main, making this redundant)
 
-Had a dummy moment here - I could not figure out the relationship of checks to statuses and almost went down the road of making API status calls. The issue was that I was trying to find a status that referred to 'CI' the name of the check or tests.yml. The correct status was 'build' the name of the job within the yml file. That only took best part of 2 hours - how silly. 
+Had a dummy moment here - I could not figure out the relationship of checks to statuses and almost went down the road of making API status calls. The issue was that I was trying to find a status that referred to 'CI' the name of the check or tests.yml. The correct status was 'build' the name of the job within the yml file. That only took best part of 2 hours - how silly.
