@@ -33,8 +33,16 @@ $ cd string_calc
 # run the application
 $ python kata.py
 
+OR
+
+$ python3 kata.py
+
 # to run all tests
 $ python -m unittest test_kata.py
+
+OR 
+
+$ python3 -m unittest test_kata.py
 
 ```
 

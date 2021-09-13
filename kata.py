@@ -48,5 +48,6 @@ def Add(string):
                 raise Exception(f'Negatives not allowed: {negatives_list}')
 
 if __name__ == '__main__':
-    string = input('Enter string:')
-    Add(string)
+    input_delimiter = input('Enter delimiter:')
+    input_nums = input('Enter numbers seperated by delimiter:')
+    print(Add(f'//{input_delimiter}\n{input_nums}'))
