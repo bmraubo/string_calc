@@ -210,4 +210,10 @@ The exercise and verification is now the same for non-negative number tests = `s
 
 Negative value tests have been left as is.
 
-The test have been renamed, per the feedback - all tests are consistently named with written out numbers (i.e. four, not 4). Howdy tests have been renamed to describe what they test, as opposed to a name that might be confusing to others. 
+The test have been renamed, per the feedback - all tests are consistently named with written out numbers (i.e. four, not 4). Howdy tests have been renamed to describe what they test, as opposed to a name that might be confusing to others.
+
+### Refactoring complexity 
+
+I have tried to reduce the complexity of the function by introducing the nested `custom_delimiter` function to contain all the code that is triggered should an input string start with '//'. 
+
+The next step is to deal with the repeating code dealing with negative numbers. 
