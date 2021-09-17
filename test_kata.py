@@ -28,7 +28,7 @@ class StringCalcTests(unittest.TestCase):
     # Step 3 tests
     def test_new_line(self):
         test_string = '1\n3'
-        test_sum = 1+4
+        test_sum = 1+3
         self.assertEqual(Add(test_string), test_sum)
 
     def test_new_line_comma(self):
