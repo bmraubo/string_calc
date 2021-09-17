@@ -5,40 +5,62 @@ class StringCalcTests(unittest.TestCase):
     
     # Step 1 tests
     def test_empty_string(self):
-        self.assertEqual(Add(''), 0)
+        test_string = ''
+        test_sum = 0
+        self.assertEqual(Add(test_string), test_sum)
 
     def test_two_nums(self):
-        self.assertEqual(Add('2,4'), 6)
+        test_string = '2,4'
+        test_sum = 2+4
+        self.assertEqual(Add(test_string), test_sum)
 
     # Step 2 tests
-    def test_4_nums(self):
-        self.assertEqual(Add('4,8,1,9'), 22)
+    def test_four_nums(self):
+        test_string = '4,8,1,9'
+        test_sum = 4+8+1+9
+        self.assertEqual(Add(test_string), test_sum)
 
-    def test_10_nums(self):
-        self.assertEqual(Add('1,6,1,8,3,2,12,56,4,87'), 180)
+    def test_ten_nums(self):
+        test_string = '1,6,1,8,3,2,12,56,4,87'
+        test_sum = 1+6+1+8+3+2+12+56+4+87
+        self.assertEqual(Add(test_string), test_sum)
 
     # Step 3 tests
     def test_new_line(self):
-        self.assertEqual(Add('1\n3'), 4)
+        test_string = '1\n3'
+        test_sum = 1+4
+        self.assertEqual(Add(test_string), test_sum)
 
     def test_new_line_comma(self):
-        self.assertEqual(Add('1\n3,5'), 9)
+        test_string = '1\n3,5'
+        test_sum = 1+3+5
+        self.assertEqual(Add(test_string), test_sum)
 
     # Step 4 tests
-    def test_other_delimiters(self):
-        self.assertEqual(Add('//&\n4&9'), 13)
+    def test_custom_delimiters(self):
+        test_string = '//&\n4&9'
+        test_sum = 4+9
+        self.assertEqual(Add(test_string), test_sum)
 
-    def test_howdy_delimiter(self):
-        self.assertEqual(Add('//howdy\n1howdy4'), 5)
+    def test_multiple_character_delimiter(self):
+        test_string = '//howdy\n1howdy4'
+        test_sum = 1+4
+        self.assertEqual(Add(test_string), test_sum)
 
-    def test_howdy_no_nums(self):
-        self.assertEqual(Add('//howdy\n'), 0)
+    def test_multiple_character_delimiter_no_nums(self):
+        test_string = '//howdy\n'
+        test_sum = 0
+        self.assertEqual(Add(test_string), test_sum)
 
     def test_new_line_custom_delimiter(self):
-        self.assertEqual(Add('//\n\n4\n3'), 7)
+        test_string = '//\n\n4\n3'
+        test_sum = 4+3
+        self.assertEqual(Add(test_string), test_sum)
 
     def test_new_line_no_nums(self):
-        self.assertEqual(Add('//\n\n'), 0)
+        test_string = '//\n\n'
+        test_sum = 0 
+        self.assertEqual(Add(test_string), test_sum)
 
     # Step 5 tests
     def test_single_negative(self):

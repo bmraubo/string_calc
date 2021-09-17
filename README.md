@@ -188,3 +188,26 @@ The starting point would be a test file with no tests. The first pull request wo
 This has the added benefit of expending the number of tests done with each pull request automatically. *I subsequently became aware that the tests used for the merge check are from the branch, not main, making this redundant)
 
 Had a dummy moment here - I could not figure out the relationship of checks to statuses and almost went down the road of making API status calls. The issue was that I was trying to find a status that referred to 'CI' the name of the check or tests.yml. The correct status was 'build' the name of the job within the yml file. That only took best part of 2 hours - how silly.
+
+## Refactoring based on feedback
+
+General points of feedback are as follows:
+
+1. Always validate CI pipeline.
+2. Code should do the minimum to pass the tests.
+3. Tests should follow consistent naming conventions and be clear as to what they test.
+4. As the work done by the function grows, it should be refactored to keep the complexity of any single function to a minimum.
+5. Look for repeated chunks of code that can be extracted to reduce duplication.
+6. Exceptions should be as specific as possible. 
+
+### Refactoring tests
+
+Given that I had some time to do this, I decided to do the short Fundamentals of TDD course in order to work on the testing concepts. In particular, I tried the apply the principles of the four-stage test - although it may be overkill in the scenario. In order to standardise the way that tests are presented (and hopefully add a little to their legibility), I have added test_string and test_sum variables.
+
+Test_string contains the input string into the function for which the test will be run. Test_sum is the sum of the numbers within the test string, calculated using simple addition (avoiding the finger counting previously required to set up a test - which is more likely to result in an error). I hope this adds clarity in the deeply hypothetical scenario where someone other than me touches this.
+
+The exercise and verification is now the same for non-negative number tests = `self.assertEqual(Add(test_string), test_sum)`. No teardown is necessary. 
+
+Negative value tests have been left as is.
+
+The test have been renamed, per the feedback - all tests are consistently named with written out numbers (i.e. four, not 4). Howdy tests have been renamed to describe what they test, as opposed to a name that might be confusing to others. 
