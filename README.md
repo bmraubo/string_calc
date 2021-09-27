@@ -217,3 +217,5 @@ The test have been renamed, per the feedback - all tests are consistently named 
 I have tried to reduce the complexity of the function by introducing the nested `custom_delimiter` function to contain all the code that is triggered should an input string start with '//'. 
 
 The next step is to deal with the repeating code dealing with negative numbers. 
+
+So I took a few days break here and when I came back (partially influenced by Kent Beck at this point) I noticed that the refactor could be taken further by creating a `calculate()` function that takes in the section of the string containing the numbers. Now this string will vary depending on the overall input - that is to say, that the identification and highlighting of the num_sting has to be done on a case by case basis. From that point, however the code can be standardised. Repetition is reduced, and should the the calculation process can be changed for all cases by editing a single function - which is the point.
